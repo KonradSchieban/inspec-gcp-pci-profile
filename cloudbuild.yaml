@@ -32,8 +32,7 @@ steps:
     - 'cli'
     - json:/workspace/pci_report.json'
     - 'html:./pci_report.html'
-    - |
-        | true
+    - '|| true'
 
 - id: 'Store Report'
   waitFor: ['Run PCI Profile']
