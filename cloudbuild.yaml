@@ -21,7 +21,17 @@ steps:
 - id: 'Run PCI Profile'
   waitFor: ['-']
   name: gcr.io/ks4-test-compliant/inspec-gcp-pci-profile:v3.2.1-2
-  args: ['exec', '/share/.', '-t', 'gcp://', '--input', 'gcp_project_id=${_GCP_PROJECT_ID}', '--reporter', 'cli ', json:/workspace/pci_report.json', 'html:./pci_report.html']
+  args:
+    - 'exec'
+    - '/share/.'
+    - '-t'
+    - 'gcp://'
+    - '--input'
+    - 'gcp_project_id=${_GCP_PROJECT_ID}'
+    - '--reporter'
+    - 'cli'
+    - json:/workspace/pci_report.json'
+    - 'html:./pci_report.html'
 
 - id: 'Store Report'
   waitFor: ['Run PCI Profile']
