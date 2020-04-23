@@ -6,3 +6,7 @@ ENV CHEF_LICENSE accept-no-persist
 #CMD ["exec /share/. -t gcp://"]
 #ENTRYPOINT ["inspec", "exec", "/share", "-t", "gcp://"]
 #ENTRYPOINT ["inspec"]
+ENTRYPOINT ["inspec"]
+CMD ["help"]
+VOLUME ["/share"]
+WORKDIR /share

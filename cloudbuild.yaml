@@ -21,8 +21,8 @@ steps:
   waitFor: ['-']
   name: gcr.io/ks4-test-compliant/inspec-gcp-pci-profile:v3.2.1-2
   args:
-    - exec /share/. -t gcp:// --input gcp_project_id=${_GCP_PROJECT_ID}
-#    - 
-#    - -t
-#    - gcp://
-#    - --input gcp_project_id=${_GCP_PROJECT_ID}
+    - exec
+    - /share/.
+    - -t
+    - gcp://
+    - --input gcp_project_id=${_GCP_PROJECT_ID}
