@@ -4,3 +4,4 @@ COPY . /share/.
 ENV CHEF_LICENSE accept-no-persist
 
 CMD ["exec /share/. -t gcp://"]
+ENTRYPOINT ["inspec", "exec", "/share", "-t", "gcp://"]
