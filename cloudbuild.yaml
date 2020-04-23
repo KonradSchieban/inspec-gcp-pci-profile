@@ -15,5 +15,5 @@
 timeout: 2700s
 steps:
 - id: 'Run PCI Profile'
-waitFor: ['-']
-name: gcr.io/ks4-test-compliant/inspec-gcp-pci-profile:v3.2.1-2
+  waitFor: ['-']
+  name: gcr.io/ks4-test-compliant/inspec-gcp-pci-profile:v3.2.1-2
