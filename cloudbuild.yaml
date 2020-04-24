@@ -32,5 +32,5 @@ steps:
   name: gcr.io/cloud-builders/gsutil
   args:
     - cp
-    - '/workspace/pci_report.json'
     - 'gs://${_REPORTS_BUCKET}/pci_report-$${BUILD}.json'
+    - '/workspace/pci_report.json'
