@@ -25,7 +25,9 @@ steps:
   args: 
     - '-c'
     - |
-      inspec exec /share/. -t gcp:// --input gcp_project_id=${_GCP_PROJECT_ID} --reporter cli json:/workspace/pci_report.json html:/workspace/pci_report.html | tee out.json
+      inspec exec /share/. -t gcp:// \
+      --input gcp_project_id=${_GCP_PROJECT_ID} \
+      --reporter cli json:/workspace/pci_report.json html:/workspace/pci_report.html | tee out.json
 
 - id: 'Store Report'
   waitFor: ['Run PCI Profile']
@@ -33,4 +35,4 @@ steps:
   args:
     - cp
     - /workspace/pci_report.json
-    - gs://${_REPORTS_BUCKET}/pci_report.json
+    - gs://${_REPORTS_BUCKET}/pci_report-${BUILD_ID}.json
