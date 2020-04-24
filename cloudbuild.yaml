@@ -25,12 +25,12 @@ steps:
   args: 
     - '-c'
     - |
-      inspec exec /share/. -t gcp:// --input gcp_project_id=${_GCP_PROJECT_ID} --reporter cli json:/workspace/pci_report.json html:./pci_report.html | true
+      inspec exec /share/. -t gcp:// --input gcp_project_id=${_GCP_PROJECT_ID} --reporter cli json:/workspace/pci_report.json html:/workspace/pci_report.html | tee out.json
 
 - id: 'Store Report'
   waitFor: ['Run PCI Profile']
   name: gcr.io/cloud-builders/gsutil
   args:
     - cp
-    - 'gs://${_REPORTS_BUCKET}/pci_report-$${BUILD}.json'
-    - '/workspace/pci_report.json'
+    - /workspace/pci_report.json
+    - gs://${_REPORTS_BUCKET}/pci_report.json
